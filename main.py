@@ -13,7 +13,8 @@ commands = {
 
 def main():
   parser = PromptParser()
-  parser.add_argument('-n', '--name', help='name of script to run')
+  scripts_list = ', '.join(list(commands.keys()))
+  parser.add_argument('-n', '--name', help='name of script to run [' + scripts_list + ']')
   args = parser.parse_args()
   if args.name:
     if args.name in commands:

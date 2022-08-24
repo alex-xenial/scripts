@@ -23,7 +23,7 @@ def timesheet():
   
   hotkey('command', 'option', 'j', interval=INTERVAL)
   
-  script = """
+  js = """
   const days = ['mon','tue','wed','thu','fri']
   days.forEach(day => {
     document.querySelector(`#start_time_${day}`).value = '09:00'
@@ -32,8 +32,8 @@ def timesheet():
   document.querySelector('input[name=saveSheet]').click()
   """
   
-  # Paste script into the console
-  copy(script)
+  # Paste javascript into the console
+  copy(js)
   hotkey('command', 'v', interval=INTERVAL)
   press('enter')
   hotkey('command', 'w', interval=INTERVAL)

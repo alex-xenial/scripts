@@ -4,11 +4,24 @@ from pyautogui import move, click, write, press, hotkey
 from globals import INTERVAL
 
 def aws():
-  new_tab(url='mfa.')
+
+  # Open SSO  
+  new_tab(url='mfa.', wait=3)
+  
+  # Login
+  press('tab')
+  press('enter')
   sleep(5)
+  
+  # Open AWS
   write('aws')
   press('enter')
   sleep(5)
+  
+  # TODO: Use 2fa key to generate token and paste into prompt
+  
+  # Copy env variables
+  # TODO: Do this without using the mouse
   click(x=607, y=323)
   sleep(1.5)
   click(x=964, y=495)
@@ -16,16 +29,28 @@ def aws():
   click(x=1211, y=547)
   sleep(2)
   click(x=935, y=542)
+  
+  # Close tab
   for i in range(2):
     hotkey('command', 'w', interval=INTERVAL)
+    
+  # Open .env file
   spotlight('visual studio code')
   hotkey('command', 'p', interval=INTERVAL)
   write('.env')
   press('enter')
+  
+  # Place cursor at beginning of file
+  hotkey('command', 'a', interval=INTERVAL)
+  press('left')
+  
+  # Find existing env variables
   hotkey('command', 'f', interval=INTERVAL)
   write('aws_')
   press('escape')
   hotkey('command', 'left', interval=INTERVAL)
+  
+  # Place multiple cursors and paste
   for i in range(2):
     hotkey('command', 'option', 'down', interval=INTERVAL)
   hotkey('command', 'shift', 'right', interval=INTERVAL)
@@ -34,4 +59,7 @@ def aws():
   press('left')
   hotkey('option', 'delete', interval=INTERVAL)
   press('delete')
+  
+  # Save file and close
   hotkey('command', 's', interval=INTERVAL)
+  hotkey('command', 'w', interval=INTERVAL)

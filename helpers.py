@@ -30,6 +30,7 @@ def spotlight(query):
   press('enter')
 
 def new_tab(url, wait=2):
+  sleep(.5)
   spotlight('chrome')
   hotkey('command', 't', interval=INTERVAL)
   write(url)
