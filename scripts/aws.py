@@ -6,7 +6,7 @@ from helpers import new_tab, spotlight
 from pyautogui import move, click, write, press, hotkey
 from pyperclip import copy
 
-totp = pyotp.TOTP(os.getenv('TOTP_SECRET'))
+totp = pyotp.TOTP(os.getenv('MFA_TOTP_SECRET'))
 email = os.getenv('EMAIL')
 
 def aws():
