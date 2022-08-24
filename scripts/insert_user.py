@@ -21,7 +21,36 @@ def insert_user():
   press('enter')
   sleep(1)
   hotkey('command', 'a', interval=INTERVAL)
-  user = '{"_id": ObjectID("62dab1fec5123b0009a8d310"),"is_active": true,"created_at": ISODate("2022-03-25T14:22:31.134Z"),"created_by": ObjectID("5c86483fa3b5a00ce28c56dc"),"updated_at": ISODate("2022-03-25T14:22:31.626Z"),"updated_by": ObjectID("5c86483fa3b5a00ce28c56dc"),"name": "Alex Wohlbruck","first_name": "Alex","last_name": "Wohlbruck","email": "alex.wohlbruck+dev@xenial.com","roles": [{"role_name": "admin","role_id": ObjectID("5881ffa30d242c000609858d")}],"preferred_language": "en-US","cognito_uuid": "unknown","sign_up_date": ISODate("2022-03-26T14:22:31.000Z"),"last_login": ISODate("2022-07-22T14:30:28.234Z"),"external_idp": null,"email_bidx": "maVa+mNoefnR6TqR45gBB4o2t9aE2cguTlrq79KQ1kM=","name_bidx": "BID54HZoCgLsQ4BvPEKMe4oCsx48P0aFJo8/Beyu/5A=","first_name_bidx": "svSI8HecvHidCPMHGgQqtPxHIZqaAGAIYYqCBhFVfpY=","last_name_bidx": "WSnfIJoRcGvoQ62qcp4edo0ggIpEBsNs5Mc4E62Hv4U=","version": 1}'
+  user = """
+  {
+    "_id": ObjectID("62dab1fec5123b0009a8d310"),
+    "is_active": true,
+    "created_at": ISODate("2022-03-25T14:22:31.134Z"),
+    "created_by": ObjectID("5c86483fa3b5a00ce28c56dc"),
+    "updated_at": ISODate("2022-03-25T14:22:31.626Z"),
+    "updated_by": ObjectID("5c86483fa3b5a00ce28c56dc"),
+    "name": "Alex Wohlbruck",
+    "first_name": "Alex",
+    "last_name": "Wohlbruck",
+    "email": "alex.wohlbruck+dev@xenial.com",
+    "roles": [
+      {
+        "role_name": "admin",
+        "role_id": ObjectID("5881ffa30d242c000609858d")
+      }
+    ],
+    "preferred_language": "en-US",
+    "cognito_uuid": "unknown",
+    "sign_up_date": ISODate("2022-03-26T14:22:31.000Z"),
+    "last_login": ISODate("2022-07-22T14:30:28.234Z"),
+    "external_idp": null,
+    "email_bidx": "maVa+mNoefnR6TqR45gBB4o2t9aE2cguTlrq79KQ1kM=",
+    "name_bidx": "BID54HZoCgLsQ4BvPEKMe4oCsx48P0aFJo8/Beyu/5A=",
+    "first_name_bidx": "svSI8HecvHidCPMHGgQqtPxHIZqaAGAIYYqCBhFVfpY=",
+    "last_name_bidx": "WSnfIJoRcGvoQ62qcp4edo0ggIpEBsNs5Mc4E62Hv4U=",
+    "version": 1
+  }
+  """
   copy(user)
   hotkey('command', 'v', interval=INTERVAL)
   click(x=1206, y=628)
