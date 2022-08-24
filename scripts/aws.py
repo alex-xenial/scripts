@@ -7,7 +7,7 @@ from pyautogui import move, click, write, press, hotkey
 from pyperclip import copy
 
 totp = pyotp.TOTP(os.getenv('TOTP_SECRET'))
-print(totp.now())
+email = os.getenv('EMAIL')
 
 def aws():
 
@@ -15,6 +15,9 @@ def aws():
   new_tab(url='mfa.', wait=3)
   
   # Login
+  hotkey('command', 'a', interval=INTERVAL)
+  write(email)
+  press('space')
   press('tab')
   press('enter')
   sleep(7)
@@ -25,8 +28,12 @@ def aws():
   sleep(5)
   
   copy(totp.now())
-  hotkey('ctrl', 'v', interval=INTERVAL)
-  return
+  hotkey('command', 'v', interval=INTERVAL)
+  press('tab')
+  press('space')
+  press('tab')
+  press('enter')
+  sleep(7)
   
   # Copy env variables
   # TODO: Do this without using the mouse
@@ -45,7 +52,8 @@ def aws():
   # Open .env file
   spotlight('visual studio code')
   hotkey('command', 'p', interval=INTERVAL)
-  write('.env')
+  write('pos-onboarding/.env', interval=INTERVAL/2)
+  sleep(1)
   press('enter')
   
   # Place cursor at beginning of file
