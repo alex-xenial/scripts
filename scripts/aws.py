@@ -1,7 +1,13 @@
+from globals import INTERVAL
+import os
+import pyotp
 from time import sleep
 from helpers import new_tab, spotlight
 from pyautogui import move, click, write, press, hotkey
-from globals import INTERVAL
+from pyperclip import copy
+
+totp = pyotp.TOTP(os.getenv('TOTP_SECRET'))
+print(totp.now())
 
 def aws():
 
@@ -11,14 +17,16 @@ def aws():
   # Login
   press('tab')
   press('enter')
-  sleep(5)
+  sleep(7)
   
   # Open AWS
   write('aws')
   press('enter')
   sleep(5)
   
-  # TODO: Use 2fa key to generate token and paste into prompt
+  copy(totp.now())
+  hotkey('ctrl', 'v', interval=INTERVAL)
+  return
   
   # Copy env variables
   # TODO: Do this without using the mouse

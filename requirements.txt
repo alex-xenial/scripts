@@ -141,8 +141,10 @@ pyobjc-framework-VideoToolbox==8.5
 pyobjc-framework-Virtualization==8.5
 pyobjc-framework-Vision==8.5
 pyobjc-framework-WebKit==8.5
+pyotp==2.6.0
 pyperclip==1.8.2
 PyRect==0.2.0
 PyScreeze==0.1.28
+python-dotenv==0.20.0
 pytweening==1.0.4
 rubicon-objc==0.4.2

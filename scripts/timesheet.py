@@ -7,7 +7,6 @@ from globals import INTERVAL
 def timesheet():
   
   submit_timesheet = prompt_yn(question='Do you want to submit the timesheet after saving?')
-  sleep(1)
   
   new_tab('kinetix-globalpay', 10)
   click_link('add timesheet', 3)

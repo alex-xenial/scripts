@@ -1,4 +1,9 @@
+import os
+from dotenv import load_dotenv
 from argparse_prompt import PromptParser
+
+load_dotenv()
+
 from scripts.aws import aws
 from scripts.insert_user import insert_user
 from scripts.timesheet import timesheet
