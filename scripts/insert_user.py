@@ -2,10 +2,10 @@ from time import sleep
 from pyautogui import click, press, hotkey
 from pyperclip import copy
 from globals import INTERVAL
+from helpers import new_tab, click_link
 
 def insert_user():
-  new_tab(url='localhost:8083')
-  sleep(9)
+  new_tab(url='localhost:8083', wait=10)
   
   # Open xprt databse
   for i in range(7):
