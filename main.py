@@ -24,6 +24,7 @@ def main():
   if args.name:
     if args.name in commands:
       commands[args.name]()
+      os.system('say "{name} script completed"'.format(name=args.name))
     else:
       print('Invalid script name')
   else:

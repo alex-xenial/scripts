@@ -2,6 +2,7 @@ from time import sleep
 import sys
 from globals import INTERVAL
 from pyautogui import write, press, hotkey
+from pyperclip import copy
 
 def prompt_yn(question, default='y'):
   valid = {'y': True, 'n': False}
@@ -45,3 +46,17 @@ def click_link(text, wait=0, index=0):
   press('escape')
   press('enter')
   sleep(wait)
+  
+def run_javascript(script_string, wait=0):
+  print('running js')
+  hotkey('command', 'option', 'j', interval=INTERVAL)
+  print('opened console')
+  sleep(2)
+  copy(script_string)
+  print('copying')
+  hotkey('command', 'v', interval=INTERVAL)
+  press('enter')
+  sleep(wait)
+
+def close_current_tab():
+  hotkey('command', 'w', interval=INTERVAL)

@@ -2,14 +2,24 @@ from globals import INTERVAL
 import os
 import pyotp
 from time import sleep
-from helpers import new_tab, spotlight
+from helpers import new_tab, spotlight, close_current_tab, prompt_yn, run_javascript
 from pyautogui import move, click, write, press, hotkey
-from pyperclip import copy
+from pyperclip import copy, paste
+from environs import Env
 
 totp = pyotp.TOTP(os.getenv('MFA_TOTP_SECRET'))
 email = os.getenv('EMAIL')
 
 def aws():
+  creds = get_aws_creds()
+  functions = {
+    'vscode': insert_env_vscode
+  }
+  functions[os.getenv('CODE_EDITOR')](creds)
+
+def get_aws_creds():
+  
+  will_ask_otp = not prompt_yn(question='Have you entered your 2FA code in the last 24 hours?', default='n')
 
   # Open SSO  
   new_tab(url='mfa.', wait=3)
@@ -27,27 +37,46 @@ def aws():
   press('enter')
   sleep(5)
   
-  copy(totp.now())
-  hotkey('command', 'v', interval=INTERVAL)
-  press('tab')
-  press('space')
-  press('tab')
-  press('enter')
-  sleep(7)
+  if (will_ask_otp):
+    print('entering otp code')
+    copy(totp.now())
+    hotkey('command', 'v', interval=INTERVAL)
+    press('tab')
+    press('space')
+    press('tab')
+    press('enter')
+    sleep(5)
   
   # Copy env variables
-  # TODO: Do this without using the mouse
-  click(x=607, y=323)
-  sleep(1.5)
-  click(x=964, y=495)
-  sleep(2)
-  click(x=1211, y=547)
-  sleep(2)
-  click(x=935, y=542)
+  # TODO: Move these to js file
+  js = """
+    const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+    const copy2 = copy
+
+    async function copyCreds() {
+      document.querySelector('portal-application').click()
+      await wait(1000)
+      document.querySelectorAll('portal-instance')[1].children[0].children[0].click()
+      await wait(3000)
+      document.querySelector('#temp-credentials-button').click()
+      await wait(1000)
+      const vars = [... document.querySelectorAll('.code-line')].slice(0,3).map(el => el.innerText).join('\\n')
+      copy2(vars)
+    }
+
+    copyCreds()
+  """
+  run_javascript(js, wait=7)
   
   # Close tab
   for i in range(2):
-    hotkey('command', 'w', interval=INTERVAL)
+    close_current_tab()
+    
+  creds = paste()
+  return creds
+  
+def insert_env_vscode(creds):
+  copy(creds)
     
   # Open .env file
   spotlight('visual studio code')
@@ -78,4 +107,5 @@ def aws():
   
   # Save file and close
   hotkey('command', 's', interval=INTERVAL)
-  hotkey('command', 'w', interval=INTERVAL)
+  close_current_tab()
+

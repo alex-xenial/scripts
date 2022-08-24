@@ -3,7 +3,7 @@ from time import sleep
 from pyautogui import click, press, hotkey
 from pyperclip import copy
 from globals import INTERVAL
-from helpers import new_tab, click_link
+from helpers import new_tab, click_link, close_current_tab
 
 first = os.getenv('FIRST_NAME')
 last = os.getenv('LAST_NAME')
@@ -62,7 +62,7 @@ def insert_user():
   hotkey('command', 'v', interval=INTERVAL)
   click(x=1206, y=628)
   sleep(1)
-  hotkey('command', 'w', interval=INTERVAL)
+  close_current_tab()
 
   # Open portal
   new_tab(url='localhost:8080')

@@ -1,7 +1,7 @@
 from time import sleep
 from pyautogui import press, hotkey
 from pyperclip import copy
-from helpers import new_tab, click_link, prompt_yn
+from helpers import new_tab, click_link, prompt_yn, close_current_tab, run_javascript
 from globals import INTERVAL
 
 def timesheet():
@@ -20,7 +20,6 @@ def timesheet():
   
   sleep(5)
   
-  hotkey('command', 'option', 'j', interval=INTERVAL)
   
   js = """
   const days = ['mon','tue','wed','thu','fri']
@@ -32,15 +31,13 @@ def timesheet():
   """
   
   # Paste javascript into the console
-  copy(js)
-  hotkey('command', 'v', interval=INTERVAL)
-  press('enter')
-  hotkey('command', 'w', interval=INTERVAL)
+  run_javascript(js)
+  close_current_tab()
   
   sleep(5)
   
   if (submit_timesheet):
     click_link('save timesheet', 5)
   
-  hotkey('command', 'w', interval=INTERVAL)
+  close_current_tab()
   
