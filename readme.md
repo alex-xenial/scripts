@@ -59,8 +59,8 @@ or:
 ### Scripts
 | Name              | Description                                                     |
 |-------------------|-----------------------------------------------------------------|
-| `start_dev`       | Start development environment (runs aws, docker, insert_user) |
-| `aws`             | Copy AWS access credentials to your .env file                 |
+| `start_dev`       | Start development environment (runs `aws`, `docker`, `insert_user`) |
+| `aws`             | Copy AWS access credentials to your `.env` file                 |
 | `docker`          | Start docker containers                                       |
 | `docker-stop`     | Stop docker containers                                        |
 | `docker-prune`    | Clean docker storage                                          |
