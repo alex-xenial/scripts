@@ -32,6 +32,7 @@ echo "MFA_TOTP_SECRET=XXXXXXXXXX" >> .env
 | FIRST_NAME      | Your first name                                                 |                 |
 | LAST_NAME       | Your last name                                                  |                 |
 | EMAIL           | Your email address                                              |                 |
+| PORTAL_EMAIL ?  | Email address of the portal account                             |                 |
 | MFA_TOTP_SECRET | One-time-password secret key for Global Payments single sign on |                 |
 
 ## Usage
