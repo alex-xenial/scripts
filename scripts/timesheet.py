@@ -20,18 +20,8 @@ def timesheet():
   
   sleep(5)
   
-  
-  js = """
-  const days = ['mon','tue','wed','thu','fri']
-  days.forEach(day => {
-    document.querySelector(`#start_time_${day}`).value = '09:00'
-    document.querySelector(`#end_time_${day}`).value = '17:00'
-  })
-  document.querySelector('input[name=saveSheet]').click()
-  """
-  
   # Paste javascript into the console
-  run_javascript(js)
+  run_javascript('fill-timesheet', wait=7)
   close_current_tab()
   
   sleep(5)

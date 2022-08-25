@@ -38,7 +38,6 @@ def get_aws_creds():
   sleep(5)
   
   if (will_ask_otp):
-    print('entering otp code')
     copy(totp.now())
     hotkey('command', 'v', interval=INTERVAL)
     press('tab')
@@ -47,26 +46,7 @@ def get_aws_creds():
     press('enter')
     sleep(5)
   
-  # Copy env variables
-  # TODO: Move these to js file
-  js = """
-    const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-    const copy2 = copy
-
-    async function copyCreds() {
-      document.querySelector('portal-application').click()
-      await wait(1000)
-      document.querySelectorAll('portal-instance')[1].children[0].children[0].click()
-      await wait(3000)
-      document.querySelector('#temp-credentials-button').click()
-      await wait(1000)
-      const vars = [... document.querySelectorAll('.code-line')].slice(0,3).map(el => el.innerText).join('\\n')
-      copy2(vars)
-    }
-
-    copyCreds()
-  """
-  run_javascript(js, wait=7)
+  run_javascript('copy-aws-credentials', wait=7)
   
   # Close tab
   for i in range(2):

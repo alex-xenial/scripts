@@ -1,5 +1,6 @@
-from time import sleep
 import sys
+import os
+from time import sleep
 from globals import INTERVAL
 from pyautogui import write, press, hotkey
 from pyperclip import copy
@@ -47,13 +48,15 @@ def click_link(text, wait=0, index=0):
   press('enter')
   sleep(wait)
   
-def run_javascript(script_string, wait=0):
-  print('running js')
+def run_javascript(filename, wait=0):
+  path = os.path.join(os.path.dirname(__file__), 'js-snippets', filename + '.js')
+  f = open(path, 'r')
+  script = f.read()
+  f.close()
+  
   hotkey('command', 'option', 'j', interval=INTERVAL)
-  print('opened console')
   sleep(2)
-  copy(script_string)
-  print('copying')
+  copy(script)
   hotkey('command', 'v', interval=INTERVAL)
   press('enter')
   sleep(wait)
