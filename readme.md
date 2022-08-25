@@ -16,6 +16,7 @@ pip install -r requirements.txt
 3. Configure environment variables
 ```bash
 touch .env
+echo "PROJECT_PATH=/path/to/project" >> .env
 echo "CODE_EDITOR=vscode" >> .env
 echo "EMAIL=myemail@example.com" >> .env
 echo "FIRST_NAME=Bob" >> .env
@@ -26,6 +27,7 @@ echo "MFA_TOTP_SECRET=XXXXXXXXXX" >> .env
 ### Environment variables
 | Name            | Description                                                     | Possible values |
 |-----------------|-----------------------------------------------------------------|-----------------|
+| PROJECT_PATH    | Absolute path to your xenial-onboarding project                 |                 |
 | CODE_EDITOR     | Code editor to use for editing files                            | vscode          |
 | FIRST_NAME      | Your first name                                                 |                 |
 | LAST_NAME       | Your last name                                                  |                 |

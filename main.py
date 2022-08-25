@@ -7,13 +7,13 @@ load_dotenv()
 from scripts.aws import aws
 from scripts.insert_user import insert_user
 from scripts.timesheet import timesheet
-from scripts.mouse_pos import mouse_pos
+from scripts.docker import docker
 
 commands = {
   'aws': aws,
+  'docker': docker,
   'insert_user': insert_user,
   'timesheet': timesheet,
-  'mouse_pos': mouse_pos
 }
 
 def main():
