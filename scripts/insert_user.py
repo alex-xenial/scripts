@@ -7,25 +7,13 @@ from helpers import new_tab, click_link, close_current_tab
 
 first = os.getenv('FIRST_NAME')
 last = os.getenv('LAST_NAME')
-email = os.getenv('EMAIL')
+email = os.getenv('PORTAL_EMAIL') or os.getenv('EMAIL')
 
 def insert_user():
   new_tab(url='localhost:8083', wait=10)
-  
-  # Open xprt databse
-  for i in range(7):
-    press('tab')
-  press('enter')
-  sleep(3)
-  
+  click_link('xprtdb', 3)
   click_link('people', 4, index=1)
-  
-  # Insert new document
-  for i in range(8):
-    press('tab')
-  press('enter')
-  sleep(1)
-  hotkey('command', 'a', interval=INTERVAL)
+  click_link('new document', 1)
   
   user = """
   {{
@@ -59,9 +47,9 @@ def insert_user():
   """.format(first=first, last=last, email=email)
   
   copy(user)
+  hotkey('command', 'a', interval=INTERVAL)
   hotkey('command', 'v', interval=INTERVAL)
-  click(x=1206, y=628)
-  sleep(1)
+  click_link('save', 1)
   close_current_tab()
 
   # Open portal

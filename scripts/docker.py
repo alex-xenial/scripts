@@ -3,14 +3,25 @@ import subprocess
 from time import sleep
 import json
 
-def docker():
+def cd_project():
   os.chdir(os.getenv('PROJECT_PATH'))
-  os.system('docker-compose up --build -d dev')
+
+def start_docker():
+  cd_project()
+  create_container('dev')
 
   # TODO: Start thread and poll these statuses while docker-compose up is running
   restart_seed()
   check_express()
   check_backend()
+  
+def stop_docker():
+  cd_project()
+  os.system('docker-compose down')
+
+def prune_docker():
+  cd_project()
+  os.system('docker system prune --all --force')
 
 def create_container(name):
   os.system('docker-compose up --build -d {name}'.format(name=name))
@@ -41,7 +52,7 @@ def check_container(name):
     return False, (False, False, False, False)
   
 def restart_seed():
-  start_container('mongodb-seed')
+  restart_container('mongodb-seed')
 
 def check_express():
     # Check seed container, if bad then restart it

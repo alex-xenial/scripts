@@ -7,11 +7,20 @@ load_dotenv()
 from scripts.aws import aws
 from scripts.insert_user import insert_user
 from scripts.timesheet import timesheet
-from scripts.docker import docker
+from scripts.docker import start_docker, stop_docker, prune_docker, restart_seed
+
+def start_dev_env():
+  aws()
+  start_docker()
+  insert_user()
 
 commands = {
+  'start_dev': start_dev_env,
   'aws': aws,
-  'docker': docker,
+  'docker': start_docker,
+  'docker-stop': stop_docker,
+  'docker-prune': prune_docker,
+  'docker-reseed': restart_seed,
   'insert_user': insert_user,
   'timesheet': timesheet,
 }
