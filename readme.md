@@ -25,7 +25,6 @@ pip install -r requirements.txt
 ```bash
 touch .env
 echo "PROJECT_PATH=/path/to/project" >> .env
-echo "CODE_EDITOR=vscode" >> .env
 echo "EMAIL=myemail@example.com" >> .env
 echo "FIRST_NAME=Bob" >> .env
 echo "LAST_NAME=Smith" >> .env
@@ -33,15 +32,14 @@ echo "MFA_TOTP_SECRET=XXXXXXXXXX" >> .env
 ```
 
 ### Environment variables
-| Name            | Description                                                     | Possible values |
-|-----------------|-----------------------------------------------------------------|-----------------|
-| PROJECT_PATH    | Absolute path to your xenial-onboarding project                 |                 |
-| CODE_EDITOR     | Code editor to use for editing files                            | vscode          |
-| FIRST_NAME      | Your first name                                                 |                 |
-| LAST_NAME       | Your last name                                                  |                 |
-| EMAIL           | Your email address                                              |                 |
-| PORTAL_EMAIL ?  | Email address of the portal account                             |                 |
-| MFA_TOTP_SECRET | One-time-password secret key for Global Payments single sign on |                 |
+| Name            | Description                                                     |
+|-----------------|-----------------------------------------------------------------|
+| PROJECT_PATH    | Absolute path to your xenial-onboarding project                 |
+| FIRST_NAME      | Your first name                                                 |
+| LAST_NAME       | Your last name                                                  |
+| EMAIL           | Your email address                                              |
+| PORTAL_EMAIL ?  | Email address of the portal account                             |
+| MFA_TOTP_SECRET | One-time-password secret key for Global Payments single sign on |
 
 ## Usage
 

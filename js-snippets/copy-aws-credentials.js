@@ -8,7 +8,10 @@ async function copyCreds() {
   await wait(3000)
   document.querySelector('#temp-credentials-button').click()
   await wait(1000)
-  const vars = [... document.querySelectorAll('.code-line')].slice(0,3).map(el => el.innerText).join('\n')
+  const vars = [... document.querySelectorAll('.code-line')]
+    .slice(0,3)
+    .map(el => el.innerText).join('\n')
+    
   copy2(vars)
 }
 
