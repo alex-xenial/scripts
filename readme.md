@@ -1,5 +1,13 @@
 # Xenial Portal scripts
 
+## Table of contents
+- [Xenial Portal scripts](#xenial-portal-scripts)
+  - [Table of contents](#table-of-contents)
+  - [Setup](#setup)
+    - [Environment variables](#environment-variables)
+  - [Usage](#usage)
+    - [Scripts](#scripts)
+
 ## Setup
 
 1. Create virtual environment
