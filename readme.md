@@ -47,3 +47,15 @@ or:
 ```bash
 % python3 main.py -n start_dev
 ```
+
+### Scripts
+| Name              | Description                                                     |
+|-------------------|-----------------------------------------------------------------|
+| `start_dev`       | Start development environment (runs aws, docker, insert_user) |
+| `aws`             | Copy AWS access credentials to your .env file                 |
+| `docker`          | Start docker containers                                       |
+| `docker-stop`     | Stop docker containers                                        |
+| `docker-prune`    | Clean docker storage                                          |
+| `docker-reseed`   | Re-seed the databse                                           |
+| `insert_user`     | Insert your user account into the database                    |
+| `timesheet`       | Fill 80 hours for the week in Kinetix time sheets             |
