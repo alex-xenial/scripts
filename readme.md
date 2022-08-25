@@ -40,10 +40,10 @@ echo "MFA_TOTP_SECRET=XXXXXXXXXX" >> .env
 1. With the python environment activated, run the following script:
 ```bash
 % python3 main.py               
-name: name of script to run [aws, insert_user, timesheet, mouse_pos]
-> aws
+name: name of script to run [start_dev, aws, docker, docker-stop, docker-prune, docker-reseed, insert_user, timesheet]
+> start_dev
 ```
 or:
 ```bash
-% python3 main.py -n aws
+% python3 main.py -n start_dev
 ```
