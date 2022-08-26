@@ -15,13 +15,13 @@ def start_dev_env():
   insert_user()
 
 commands = {
-  'start_dev': start_dev_env,
+  'dev': start_dev_env,
   'aws': aws,
   'docker': start_docker,
   'docker-stop': stop_docker,
   'docker-prune': prune_docker,
   'docker-reseed': restart_seed,
-  'insert_user': insert_user,
+  'insert-user': insert_user,
   'timesheet': timesheet,
 }
 
