@@ -8,8 +8,8 @@ def cd_project():
   os.chdir(os.getenv('PROJECT_PATH'))
 
 def start_docker():
+  ensure_docker_running()
   cd_project()
-  ensure_docker_running()  
   create_container('dev')
   # TODO: Start thread and poll these statuses while docker-compose up is running
   restart_seed()
