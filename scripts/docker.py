@@ -2,18 +2,26 @@ import os
 import subprocess
 from time import sleep
 import json
+from helpers import spotlight
 
 def cd_project():
   os.chdir(os.getenv('PROJECT_PATH'))
 
 def start_docker():
   cd_project()
+  ensure_docker_running()  
   create_container('dev')
-
   # TODO: Start thread and poll these statuses while docker-compose up is running
   restart_seed()
   check_express()
   check_backend()
+  
+def ensure_docker_running():
+  docker_process = subprocess.Popen('docker ps', shell=True, stdout=subprocess.PIPE)
+  docker_output = docker_process.stdout.read()
+  if (docker_output == b''):
+    spotlight('docker')
+    sleep(20)
   
 def stop_docker():
   cd_project()

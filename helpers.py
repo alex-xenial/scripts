@@ -28,8 +28,10 @@ def prompt_yn(question, default='y'):
     
 def spotlight(query):
   hotkey('command', 'space', interval=INTERVAL)
+  sleep(1)
   write(query)
   press('enter')
+  sleep(1)
 
 def new_tab(url, wait=2):
   sleep(.5)
