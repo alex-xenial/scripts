@@ -18,6 +18,10 @@ email = os.getenv('EMAIL')
 def aws():
   insert_environment_vars(get_aws_creds())
 
+def copy_totp():
+  copy(totp.now())
+  print('TOTP code copied to clipboard')
+
 def get_aws_creds():
   
   will_ask_otp = not prompt_yn(question='Have you entered your 2FA code in the last 24 hours?', default='n')
@@ -39,7 +43,7 @@ def get_aws_creds():
   sleep(7)
   
   if (will_ask_otp):
-    copy(totp.now())
+    copy_totp()
     hotkey('command', 'v', interval=INTERVAL)
     press('tab')
     press('space')
