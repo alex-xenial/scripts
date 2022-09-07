@@ -1,7 +1,7 @@
 from time import sleep
 from pyautogui import press, hotkey, typewrite
 
-def test():
+def sandbox():
   sleep(2.5)
   for i in range(1000):
     n = i
