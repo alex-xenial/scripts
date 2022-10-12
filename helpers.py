@@ -1,8 +1,8 @@
 import sys
 import os
 from time import sleep
-from globals import INTERVAL
-from pyautogui import write, press, hotkey
+from globals import INTERVAL, WRITE_INTERVAL
+from pyautogui import typewrite, press, hotkey
 from pyperclip import copy
 
 def prompt_yn(question, default='y'):
@@ -29,7 +29,7 @@ def prompt_yn(question, default='y'):
 def spotlight(query):
   hotkey('command', 'space', interval=INTERVAL)
   sleep(1)
-  write(query)
+  typewrite(query, interval=WRITE_INTERVAL)
   press('enter')
   sleep(1)
 
@@ -37,13 +37,13 @@ def new_tab(url, wait=2):
   sleep(.5)
   spotlight('chrome')
   hotkey('command', 't', interval=INTERVAL)
-  write(url)
+  typewrite(url, interval=WRITE_INTERVAL)
   press('enter')
   sleep(wait)
 
 def click_link(text, wait=0, index=0):
   hotkey('command', 'f', interval=INTERVAL)
-  write(text)
+  typewrite(text, interval=WRITE_INTERVAL)
   for i in range(index):
     press('enter')
   press('escape')

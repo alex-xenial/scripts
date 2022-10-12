@@ -1,10 +1,10 @@
-from globals import INTERVAL
+from globals import INTERVAL, WRITE_INTERVAL
 import os
 import pyotp
 from time import sleep
 import dotenv
 from helpers import new_tab, spotlight, close_current_tab, prompt_yn, run_javascript
-from pyautogui import move, click, write, press, hotkey
+from pyautogui import move, click, typewrite, press, hotkey
 from pyperclip import copy, paste
 from environs import Env
 
@@ -31,14 +31,14 @@ def get_aws_creds():
   
   # Login
   hotkey('command', 'a', interval=INTERVAL)
-  write(email)
+  typewrite(email, interval=WRITE_INTERVAL)
   press('space')
   press('tab')
   press('enter')
   sleep(7)
   
   # Open AWS
-  write('aws')
+  typewrite('aws', interval=WRITE_INTERVAL)
   press('enter')
   sleep(7)
   
