@@ -57,6 +57,7 @@ def run_javascript(filename, wait=0):
   f.close()
   
   hotkey('command', 'option', 'j', interval=INTERVAL)
+  hotkey('ctrl', '`', interval=INTERVAL)
   sleep(2)
   copy(script)
   hotkey('command', 'v', interval=INTERVAL)

@@ -8,7 +8,9 @@ def timesheet():
   
   submit_timesheet = prompt_yn(question='Do you want to submit the timesheet after saving?')
   
-  new_tab('kinetix-globalpay', 10)
+  new_tab('kinetix-globalpay', 5)
+  click_link('login', wait=10, index=1)
+  sleep(3)
   click_link('add timesheet', 3)
   click_link('select', 1, index=1)
   

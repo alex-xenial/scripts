@@ -1,1 +1,1 @@
-INTERVAL = 0.1
+INTERVAL = 0.5
