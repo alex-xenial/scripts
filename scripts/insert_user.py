@@ -34,7 +34,7 @@ def insert_user():
       }}
     ],
     "preferred_language": "en-US",
-    "cognito_uuid": "unknown",
+    "cognito_uuid": "6c1db0d0-2436-4586-9fcc-eb0a9d7fb040",
     "sign_up_date": ISODate("2022-03-26T14:22:31.000Z"),
     "last_login": ISODate("2022-07-22T14:30:28.234Z"),
     "external_idp": null,
@@ -42,7 +42,8 @@ def insert_user():
     "name_bidx": "BID54HZoCgLsQ4BvPEKMe4oCsx48P0aFJo8/Beyu/5A=",
     "first_name_bidx": "svSI8HecvHidCPMHGgQqtPxHIZqaAGAIYYqCBhFVfpY=",
     "last_name_bidx": "WSnfIJoRcGvoQ62qcp4edo0ggIpEBsNs5Mc4E62Hv4U=",
-    "version": 1
+    "version": 1,
+    "namespace": "xprt"
   }}
   """.format(first=first, last=last, email=email)
   

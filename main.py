@@ -11,6 +11,7 @@ from scripts.docker import start_docker, stop_docker, prune_docker, restart_seed
 from scripts.sandbox import sandbox
 
 def start_dev_env():
+  stop_docker()
   aws()
   start_docker()
   insert_user()
