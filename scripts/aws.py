@@ -3,7 +3,7 @@ import os
 import pyotp
 from time import sleep
 import dotenv
-from helpers import new_tab, spotlight, close_current_tab, prompt_yn, run_javascript
+from helpers import new_tab, spotlight, click_link, close_current_tab, prompt_yn, run_javascript
 from pyautogui import move, click, typewrite, press, hotkey
 from pyperclip import copy, paste
 from environs import Env
@@ -36,6 +36,11 @@ def get_aws_creds():
   press('tab')
   press('enter')
   sleep(7)
+  
+  click_link('Search your apps', 1)
+  press('tab')
+  hotkey('shift', 'tab', interval=INTERVAL)
+  
   
   # Open AWS
   typewrite('aws', interval=WRITE_INTERVAL)
