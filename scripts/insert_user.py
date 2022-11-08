@@ -10,9 +10,7 @@ last = os.getenv('LAST_NAME')
 email = os.getenv('PORTAL_EMAIL') or os.getenv('EMAIL')
 
 def insert_user():
-  new_tab(url='localhost:8083', wait=10)
-  click_link('xprtdb', 3)
-  click_link('people', 4, index=1)
+  new_tab(url='localhost:8083/db/xprtdb/people', wait=8)
   click_link('new document', 1)
   
   user = """
