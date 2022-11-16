@@ -83,13 +83,15 @@ or:
 ```
 
 ### Scripts
-| Name              | Description                                                         |
-|-------------------|---------------------------------------------------------------------|
-| `dev`             | Start development environment (runs `aws`, `docker`, `insert-user`) |
-| `aws`             | Copy AWS access credentials to your `.env` file                     |
-| `docker`          | Start docker containers                                             |
-| `docker-stop`     | Stop docker containers                                              |
-| `docker-prune`    | Clean docker storage                                                |
-| `docker-reseed`   | Re-seed the database                                                 |
-| `insert-user`     | Insert your user account into the database                          |
-| `timesheet`       | Fill 80 hours for the week in Kinetix time sheets                   |
+| Name              | Description                                                                              |
+|-------------------|------------------------------------------------------------------------------------------|
+| `dev`             | Start development environment (runs `aws`, `docker`, `insert-user`)                      |
+| `aws`             | Copy AWS access credentials to your `.env` file                                          |
+| `docker`          | Start docker containers                                                                  |
+| `docker-stop`     | Stop docker containers                                                                   |
+| `docker-prune`    | Clean docker storage                                                                     |
+| `docker-reseed`   | Re-seed the database                                                                     |
+| `insert-user`     | Insert your user account into the database                                               |
+| `timesheet`       | Fill 80 hours for the week in Kinetix time sheets                                        |
+| `sandbox`         | Executes any code you write in `sandbox.py`                                              |
+| `totp`            | Retrieves your current TOTP code for Global Payments mfa and copies it to your clipboard |
