@@ -47,7 +47,15 @@ def insert_user():
     "version": 1,
     "namespace": "xprt"
   }}
-  """.format(first=first, last=last, email=email)
+  """.format(
+    first=first,
+    last=last,
+    email=email,
+    email_bidx=email_bidx,
+    name_bidx=name_bidx,
+    first_name_bidx=first_name_bidx,
+    last_name_bidx=last_name_bidx
+  )
   
   copy(user)
   hotkey('command', 'a', interval=INTERVAL)
