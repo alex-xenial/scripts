@@ -51,7 +51,7 @@ name: name of script to run [start_dev, aws, docker, docker-stop, docker-prune, 
 ```
 or:
 ```bash
-% python3 main.py -n start_dev
+% python3 main.py -n dev
 ```
 
 ### Scripts
