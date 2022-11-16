@@ -40,6 +40,34 @@ echo "MFA_TOTP_SECRET=XXXXXXXXXX" >> .env
 | `EMAIL`           | Your email address                                                  |
 | `PORTAL_EMAIL` ?  | Email address of the portal account (not needed if same as `EMAIL`) |
 | `MFA_TOTP_SECRET` | One-time-password secret key for Global Payments single sign on     |
+| `EMAIL_BIDX`      | Your Xenial email_bidx hash                                         |
+| `NAME_BIDX`       | Your Xenial name_bidx hash                                          |
+| `FIRST_NAME_BIDX` | Your Xenial first_name_bidx hash                                    |
+| `LAST_NAME_BIDX`  | Your Xenial last_name_bidx hash                                     |
+
+`bidx` hash values can be found by logging in to portal on an AWS-hosted upper stack and inspecting the "/v1/me" endpoint upon logging in. Ex:
+
+```
+Request URL: https://dev-xprtbackend.xenial.com/v1/me
+Request Method: GET
+Status Code: 200 
+Remote Address: 23.20.157.89:443
+Referrer Policy: strict-origin-when-cross-origin
+```
+```json
+{
+    "is_active": true,
+    "created_at": "2022-07-20T15:14:36.738Z",
+    ...
+    "email_bidx": "************************************",
+    "name_bidx": "************************************",
+    "first_name_bidx": "************************************",
+    "last_name_bidx": "************************************",
+    ...
+}
+```
+
+
 
 ## Usage
 

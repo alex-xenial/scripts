@@ -8,6 +8,10 @@ from helpers import new_tab, click_link, close_current_tab
 first = os.getenv('FIRST_NAME')
 last = os.getenv('LAST_NAME')
 email = os.getenv('PORTAL_EMAIL') or os.getenv('EMAIL')
+email_bidx = os.getenv('EMAIL_BIDX')
+name_bidx = os.getenv('NAME_BIDX')
+first_name_bidx = os.getenv('FIRST_NAME_BIDX')
+last_name_bidx = os.getenv('LAST_NAME_BIDX')
 
 def insert_user():
   new_tab(url='localhost:8083/db/xprtdb/people', wait=8)
@@ -36,10 +40,10 @@ def insert_user():
     "sign_up_date": ISODate("2022-03-26T14:22:31.000Z"),
     "last_login": ISODate("2022-07-22T14:30:28.234Z"),
     "external_idp": null,
-    "email_bidx": "maVa+mNoefnR6TqR45gBB4o2t9aE2cguTlrq79KQ1kM=",
-    "name_bidx": "BID54HZoCgLsQ4BvPEKMe4oCsx48P0aFJo8/Beyu/5A=",
-    "first_name_bidx": "svSI8HecvHidCPMHGgQqtPxHIZqaAGAIYYqCBhFVfpY=",
-    "last_name_bidx": "WSnfIJoRcGvoQ62qcp4edo0ggIpEBsNs5Mc4E62Hv4U=",
+    "email_bidx": "{email_bidx}",
+    "name_bidx": "{name_bidx}",
+    "first_name_bidx": "{first_name_bidx}",
+    "last_name_bidx": "{last_name_bidx}",
     "version": 1,
     "namespace": "xprt"
   }}
