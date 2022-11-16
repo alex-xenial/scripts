@@ -47,7 +47,7 @@ echo "MFA_TOTP_SECRET=XXXXXXXXXX" >> .env
 ```bash
 % python3 main.py               
 name: name of script to run [start_dev, aws, docker, docker-stop, docker-prune, docker-reseed, insert_user, timesheet]
-> start_dev
+> dev
 ```
 or:
 ```bash
