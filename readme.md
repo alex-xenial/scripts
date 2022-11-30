@@ -27,6 +27,7 @@ touch .env
 echo "PROJECT_PATH=/path/to/project" >> .env
 echo "EMAIL=myemail@example.com" >> .env
 echo "FIRST_NAME=Bob" >> .env
+...
 (See table below for all required variables)
 ```
 
