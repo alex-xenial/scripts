@@ -27,23 +27,22 @@ touch .env
 echo "PROJECT_PATH=/path/to/project" >> .env
 echo "EMAIL=myemail@example.com" >> .env
 echo "FIRST_NAME=Bob" >> .env
-echo "LAST_NAME=Smith" >> .env
-echo "MFA_TOTP_SECRET=XXXXXXXXXX" >> .env
+(See table below for all required variables)
 ```
 
 ### Environment variables
-| Name              | Description                                                         |
-|-------------------|---------------------------------------------------------------------|
-| `PROJECT_PATH`    | Absolute path to your xenial-onboarding project                     |
-| `FIRST_NAME`      | Your first name                                                     |
-| `LAST_NAME`       | Your last name                                                      |
-| `EMAIL`           | Your email address                                                  |
-| `PORTAL_EMAIL` ?  | Email address of the portal account (not needed if same as `EMAIL`) |
-| `MFA_TOTP_SECRET` | One-time-password secret key for Global Payments single sign on     |
-| `EMAIL_BIDX`      | Your Xenial email_bidx hash                                         |
-| `NAME_BIDX`       | Your Xenial name_bidx hash                                          |
-| `FIRST_NAME_BIDX` | Your Xenial first_name_bidx hash                                    |
-| `LAST_NAME_BIDX`  | Your Xenial last_name_bidx hash                                     |
+| Name              | Description                                                         | Required |
+|-------------------|---------------------------------------------------------------------|----------|
+| `PROJECT_PATH`    | Absolute path to your xenial-onboarding project                     | Yes      |
+| `FIRST_NAME`      | Your first name                                                     | Yes      |
+| `LAST_NAME`       | Your last name                                                      | Yes      |
+| `EMAIL`           | Your email address                                                  | Yes      |
+| `PORTAL_EMAIL`    | Email address of the portal account (not needed if same as `EMAIL`) | No       |
+| `MFA_TOTP_SECRET` | One-time-password secret key for Global Payments single sign on     | Yes      |
+| `EMAIL_BIDX`      | Your Xenial `email_bidx` hash                                       | Yes      |
+| `NAME_BIDX`       | Your Xenial `name_bidx` hash                                        | Yes      |
+| `FIRST_NAME_BIDX` | Your Xenial `first_name_bidx` hash                                  | Yes      |
+| `LAST_NAME_BIDX`  | Your Xenial `last_name_bidx` hash                                   | Yes      |
 
 `bidx` hash values can be found by logging in to portal on an AWS-hosted upper stack and inspecting the "/v1/me" endpoint upon logging in. Ex:
 
