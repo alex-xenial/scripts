@@ -59,7 +59,7 @@ echo "FIRST_NAME=Bob" >> .env
 9. Click `Can't scan` under the QR code
 10. Copy the key that is displayed into your .env file as `MFA_TOTP_SECRET` 
 11. Click `Scan barcode`
-12. In your authenticator app, delete your old MFA key, then add the new one by scanning the QR code
+12. In your authenticator app, delete your old MFA account, then add the new one by scanning the QR code
 
 #### Retrieving BIDX hashes
 `bidx` hash values can be found by logging in to portal on an AWS-hosted upper stack and inspecting the "/v1/me" endpoint upon logging in. Ex:
