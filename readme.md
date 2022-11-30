@@ -5,6 +5,8 @@
   - [Table of contents](#table-of-contents)
   - [Setup](#setup)
     - [Environment variables](#environment-variables)
+      - [Retrieving TOTP secret key](#retrieving-totp-secret-key)
+      - [Retrieving BIDX hashes](#retrieving-bidx-hashes)
   - [Usage](#usage)
     - [Scripts](#scripts)
 
@@ -45,6 +47,21 @@ echo "FIRST_NAME=Bob" >> .env
 | `FIRST_NAME_BIDX` | Your Xenial `first_name_bidx` hash                                  | Yes      |
 | `LAST_NAME_BIDX`  | Your Xenial `last_name_bidx` hash                                   | Yes      |
 
+#### Retrieving TOTP secret key
+1. Log in to the [Global Payments MFA portal](https://mfa.sso.globalpay.com/)
+2. In the upper right click your user name
+3. Navigate to `Settings`
+4. Click `Edit Profile`
+5. Enter your 2FA code from your authenticator app
+6. In the `Extra Verification` section, remove your `Google Authenticator` configuration
+7. Reconfigure Google Authenticator by clicking `Set up`
+8. Step through the setup wizard until you see the QR code
+9. Click `Can't scan` under the QR code
+10. Copy the key that is displayed into your .env file as `MFA_TOTP_SECRET` 
+11. Click `Scan barcode`
+12. In your authenticator app, delete your old MFA key, then add the new one by scanning the QR code
+
+#### Retrieving BIDX hashes
 `bidx` hash values can be found by logging in to portal on an AWS-hosted upper stack and inspecting the "/v1/me" endpoint upon logging in. Ex:
 
 ```
