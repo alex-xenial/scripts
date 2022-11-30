@@ -114,6 +114,6 @@ or:
 | `docker-prune`    | Clean docker storage                                                                     |
 | `docker-reseed`   | Re-seed the database                                                                     |
 | `insert-user`     | Insert your user account into the database                                               |
-| `timesheet`       | Fill 80 hours for the week in Kinetix time sheets                                        |
+| `timesheet`       | Fill 40 hours for the week in Kinetix time sheets                                        |
 | `sandbox`         | Executes any code you write in `sandbox.py`                                              |
 | `totp`            | Retrieves your current TOTP code for Global Payments mfa and copies it to your clipboard |
