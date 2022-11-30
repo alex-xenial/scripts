@@ -93,7 +93,7 @@ Referrer Policy: strict-origin-when-cross-origin
 source env/bin/activate
 ```
 
-2. With the python environment activated, run the following script:
+2. With the python environment activated, run your script:
 ```bash
 % python3 main.py               
 name: name of script to run [dev, aws, docker, docker-stop, docker-prune, docker-reseed, insert_user, timesheet]
