@@ -38,11 +38,14 @@ def main():
   parser.add_argument('-n', '--name', help='name of script to run [' + scripts_list + ']')
   args = parser.parse_args()
   if args.name:
-    if args.name in commands:
-      commands[args.name]()
-      os.system('say "{name} script completed"'.format(name=args.name))
-    else:
-      print('Invalid script name')
+    command_sequence = args.name.split(',')
+    for command in command_sequence:
+      if command in commands:
+        commands[command]()
+        os.system('say "{name} script completed"'.format(name=command))
+      else:
+        print('Invalid script name')
+
   else:
     print('No script name specified')
 
