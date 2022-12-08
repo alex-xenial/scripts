@@ -79,7 +79,7 @@ def get_aws_creds():
   }
 
 def insert_environment_vars(creds):
-  path = os.path.join(os.getenv('PROJECT_PATH'), '.env')
+  path = os.path.join(os.getenv('PORTAL_PATH'), '.env')
   dotenv.set_key(path, AWS_ACCESS_KEY_ID, creds[AWS_ACCESS_KEY_ID])
   dotenv.set_key(path, AWS_SECRET_ACCESS_KEY, creds[AWS_SECRET_ACCESS_KEY])
   dotenv.set_key(path, AWS_SESSION_TOKEN, creds[AWS_SESSION_TOKEN])

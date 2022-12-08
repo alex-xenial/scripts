@@ -3,12 +3,22 @@
 ## Table of contents
 - [Xenial Portal scripts](#xenial-portal-scripts)
   - [Table of contents](#table-of-contents)
+  - [Requirements](#requirements)
   - [Setup](#setup)
     - [Environment variables](#environment-variables)
       - [Retrieving TOTP secret key](#retrieving-totp-secret-key)
       - [Retrieving BIDX hashes](#retrieving-bidx-hashes)
   - [Usage](#usage)
     - [Scripts](#scripts)
+
+## Requirements
+- MacOS with [Spotlight](https://support.apple.com/guide/mac-help/search-with-spotlight-mchlp1008/mac) enabled
+- [Cloned repository for Portal (pos-onboarding)](https://bit.xenial.com/projects/HC/repos/pos-onboarding/browse)
+- [Cloned repository for Permissions Provisioning Tool (xenial-permission-provisioning-tool)](https://bit.xenial.com/projects/HC/repos/xenial-permission-provisioning-tool/browse)
+- [Python 3](https://www.python.org/downloads/)
+- [Node.js](https://nodejs.org/en)
+- [NVM](https://github.com/nvm-sh/nvm)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 ## Setup
 
@@ -26,7 +36,7 @@ pip install -r requirements.txt
 3. Configure environment variables
 ```bash
 touch .env
-echo "PROJECT_PATH=/path/to/project" >> .env
+echo "PORTAL_PATH=/path/to/project" >> .env
 echo "EMAIL=myemail@example.com" >> .env
 echo "FIRST_NAME=Bob" >> .env
 ...
@@ -36,7 +46,8 @@ echo "FIRST_NAME=Bob" >> .env
 ### Environment variables
 | Name              | Description                                                         | Required |
 |-------------------|---------------------------------------------------------------------|----------|
-| `PROJECT_PATH`    | Absolute path to your xenial-onboarding project                     | Yes      |
+| `PORTAL_PATH`     | Absolute path to your xenial-onboarding project                     | Yes      |
+| `PPT_PATH`        | Absolute path to your xenial permissions provisioning tool project  | Yes      |
 | `FIRST_NAME`      | Your first name                                                     | Yes      |
 | `LAST_NAME`       | Your last name                                                      | Yes      |
 | `EMAIL`           | Your email address                                                  | Yes      |
@@ -113,6 +124,7 @@ or:
 | `docker-stop`     | Stop docker containers                                                                   |
 | `docker-prune`    | Clean docker storage                                                                     |
 | `docker-reseed`   | Re-seed the database                                                                     |
+| `ppt`             | Run the permissions provisioning tool migration script                                   |
 | `insert-user`     | Insert your user account into the database                                               |
 | `timesheet`       | Fill 40 hours for the week in Kinetix time sheets                                        |
 | `sandbox`         | Executes any code you write in `sandbox.py`                                              |

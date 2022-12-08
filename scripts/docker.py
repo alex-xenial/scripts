@@ -5,7 +5,7 @@ import json
 from helpers import spotlight
 
 def cd_project():
-  os.chdir(os.getenv('PROJECT_PATH'))
+  os.chdir(os.getenv('PORTAL_PATH'))
 
 def start_docker():
   ensure_docker_running()

@@ -7,6 +7,7 @@ load_dotenv()
 from scripts.aws import aws, copy_totp
 from scripts.insert_user import insert_user
 from scripts.timesheet import timesheet
+from scripts.ppt import run_ppt
 from scripts.docker import start_docker, stop_docker, prune_docker, restart_seed
 from scripts.sandbox import sandbox
 
@@ -14,6 +15,7 @@ def start_dev_env():
   stop_docker()
   aws()
   start_docker()
+  run_ppt()
   insert_user()
 
 commands = {
@@ -24,6 +26,7 @@ commands = {
   'docker-stop': stop_docker,
   'docker-prune': prune_docker,
   'docker-reseed': restart_seed,
+  'ppt': run_ppt,
   'insert-user': insert_user,
   'timesheet': timesheet,
   'sandbox': sandbox
