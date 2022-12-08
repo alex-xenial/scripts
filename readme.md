@@ -12,7 +12,7 @@
     - [Scripts](#scripts)
 
 ## Requirements
-- MacOS with [Spotlight](https://support.apple.com/guide/mac-help/search-with-spotlight-mchlp1008/mac) enabled
+- MacOS with [Spotlight](https://support.apple.com/guide/mac-help/search-with-spotlight-mchlp1008/mac) enabled or a similar tool
 - [Cloned repository for Portal (pos-onboarding)](https://bit.xenial.com/projects/HC/repos/pos-onboarding/browse)
 - [Cloned repository for Permissions Provisioning Tool (xenial-permission-provisioning-tool)](https://bit.xenial.com/projects/HC/repos/xenial-permission-provisioning-tool/browse)
 - [Python 3](https://www.python.org/downloads/)
