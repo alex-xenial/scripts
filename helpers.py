@@ -4,6 +4,7 @@ from time import sleep
 from globals import INTERVAL, WRITE_INTERVAL
 from pyautogui import typewrite, press, hotkey
 from pyperclip import copy
+import json
 
 def prompt_yn(question, default='y'):
   valid = {'y': True, 'n': False}
@@ -41,20 +42,32 @@ def new_tab(url, wait=2):
   press('enter')
   sleep(wait)
 
-def click_link(text, wait=0, index=0):
+def find_link(text, index=0):
   hotkey('command', 'f', interval=INTERVAL)
   typewrite(text, interval=WRITE_INTERVAL)
   for i in range(index):
     press('enter')
   press('escape')
+
+def click_link(text, wait=0, index=0):
+  find_link(text, index)
   press('enter')
   sleep(wait)
   
-def run_javascript(filename, wait=0):
+def alt_tab():
+  sleep(1)
+  hotkey('command', 'tab', interval=INTERVAL/1.6)
+  sleep(.5)
+  
+def run_javascript(filename, wait=0, data=None):
   path = os.path.join(os.path.dirname(__file__), 'js-snippets', filename + '.js')
   f = open(path, 'r')
   script = f.read()
   f.close()
+  
+  # Prepend script with data variable declaration
+  if data:
+    script = 'const data = ' + json.dumps(data) + ';\n' + script
   
   hotkey('command', 'option', 'j', interval=INTERVAL)
   hotkey('ctrl', '`', interval=INTERVAL)
@@ -62,6 +75,7 @@ def run_javascript(filename, wait=0):
   copy(script)
   hotkey('command', 'v', interval=INTERVAL)
   press('enter')
+  press('f12')
   sleep(wait)
 
 def close_current_tab():
